@@ -1,0 +1,23 @@
+{
+  "name": "chuck-static",
+  "version": "1.0.0",
+  "description": "A pretty good client/server renderer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvodonnell/chuck-static.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dvodonnell/chuck-static/issues"
+  },
+  "homepage": "https://github.com/dvodonnell/chuck-static#readme",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}
