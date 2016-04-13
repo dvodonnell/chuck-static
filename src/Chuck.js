@@ -1,5 +1,8 @@
 var lib = {
     express : require('express'),
+    middleware : {
+
+    },
     engines : {
         ejs : require('ejs')
     }
@@ -25,10 +28,13 @@ ChuckStatic.prototype = {
     _parseConfig : function(config) {
 
         this.config = config;
+        this.fe = config.fe;
 
     },
 
     _instantiate : function() {
+
+        var self = this;
 
         this.app = lib.express();
 
@@ -36,7 +42,12 @@ ChuckStatic.prototype = {
         this.app.engine('html', lib.engines.ejs.renderFile);
 
         this.app.get('*', function(req, res) {
-            res.render('layout.html', {body : req.url});
+            if (self.fe) {
+                self.fe.run({
+                    location : req.url
+                });
+                res.render('layout.html', {body : self.fe.renderStatic()});
+            }
         });
 
     },
